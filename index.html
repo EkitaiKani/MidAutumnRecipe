@@ -1,424 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mid-Autumn Festival Lotus Root Stir-Fry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #fdfaf4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      background-image: url('/api/placeholder/1200/800');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
 
-    <title>Mid-Autumn Festival Lotus Root Stir-Fry</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f4e8;
-            color: #3a3a3a;
-            background-image: url('/api/placeholder/1200/800');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-        }
+    div {
+      display: block;
+      unicode-bidi: isolate;
+    }
 
-        /* Base styles for Chinese text */
-        .ch {
-          font-family: "Chocolate Classical Sans", sans-serif;
-          font-weight: 400;
-          font-style: normal;
-        }
-        
-        /* English text base sizes */
-        h1 {
-            font-size: 2.5em;
-        }
-        
-        h2 {
-            font-size: 1.8em;
-        }
-        
-        h3 {
-            font-size: 1.5em;
-        }
-        
-        .subtitle {
-            font-size: 1.2em;
-        }
-        
-        p, li {
-            font-size: 1em;
-        }
-        
-        /* Chinese text sizes */
-        h1.ch {
-            font-size: 3em;
-        }
-        
-        h2.ch {
-            font-size: 2.3em;
-        }
-        
-        h3.ch {
-            font-size: 2em; 
-        }
-        
-        .subtitle.ch {
-            font-size: 1.7em; 
-        }
-        
-        p.ch, li.ch {
-            font-size: 1.5em;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.92);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-            margin-top: 70px;
-        }
-        
-        header {
-            text-align: center;
-            padding: 20px 0;
-            position: relative;
-        }
-        
-        h1 {
-            color: #b85c38;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-        }
-        
-        .subtitle {
-            color: #6b8e23;
-            font-style: italic;
-            margin-top: 0;
-        }
-        
-        .translate-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 100;
-        }
-        
-        .toggle-switch {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 34px;
-        }
-        
-        .toggle-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-        
-        .toggle-slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #b85c38;
-            border-radius: 34px;
-            transition: .4s;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        
-        .toggle-slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            border-radius: 50%;
-            transition: .4s;
-        }
-        
-        input:checked + .toggle-slider {
-            background-color: #8a4529;
-        }
-        
-        input:checked + .toggle-slider:before {
-            transform: translateX(26px);
-        }
-        
-        .toggle-labels {
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            width: 60px;
-            margin-top: 5px;
-        }
-        
-        .toggle-label {
-            font-size: 12px;
-            font-weight: bold;
-            color: #b85c38;
-            transition: opacity 0.3s;
-        }
-        
-        .toggle-label.active {
-            opacity: 1;
-        }
-        
-        .toggle-label.inactive {
-            opacity: 0.3;
-        }
-        
-        .recipe-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            padding: 20px 0;
-        }
-        
-        .ingredients {
-            flex: 1;
-            min-width: 250px;
-            background-color: #fff8e8;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .instructions {
-            flex: 2;
-            min-width: 300px;
-        }
-        
-        h2 {
-            color: #b85c38;
-            border-bottom: 2px solid #f0c14b;
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-        
-        ul, ol {
-            padding-left: 25px;
-        }
-        
-        li {
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
-        
-        .festive-element {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            opacity: 0.8;
-        }
-        
-        .lantern1 {
-            top: -40px;
-            left: 5%;
-            transform: rotate(-10deg);
-        }
-        
-        .lantern2 {
-            top: -30px;
-            right: 5%;
-            transform: rotate(10deg);
-        }
-        
-        .moon {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 50%;
-            background-color: #ffd54f;
-            box-shadow: 0 0 20px #ffd54f;
-        }
-        
-        .note {
-            background-color: #f0e6d2;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 30px;
-            border-left: 4px solid #b85c38;
-        }
-        
-        .note h3 {
-            margin-top: 0;
-            color: #b85c38;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            color: #666;
-            font-size: 0.9em;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .container {
-                margin: 60px 15px;
-                padding: 15px;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            h2 {
-                font-size: 1.5em;
-            }
-            
-            h3 {
-                font-size: 1.3em;
-            }
-            
-            h1.ch {
-                font-size: 4em; /* Maintain 2x size in responsive view */
-            }
-            
-            h2.ch {
-                font-size: 3em; /* Maintain 2x size in responsive view */
-            }
-            
-            h3.ch {
-                font-size: 2.6em; /* Maintain 2x size in responsive view */
-            }
-            
-            .subtitle.ch {
-                font-size: 2em; /* Maintain proportions */
-            }
-            
-            .translate-toggle {
-                top: 10px;
-                right: 10px;
-            }
-        }
-    </style>
+    .container {
+      position: relative;
+      max-width: 960px;
+      margin: 70px auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+
+    }
+
+    header {
+      text-align: center;
+      z-index: 1;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #b84e44;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .ch h1 {
+      font-size: 2.8em;
+    }
+
+    .subtitle {
+      font-size: 1.2em;
+      color: #728c2e;
+      margin-bottom: 25px;
+    }
+
+    .ch .subtitle {
+      font-size: 1.4em;
+    }
+
+    h2 {
+      color: #a94438;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #f7cc7b;
+      padding-bottom: 8px;
+      font-size: 1.5em;
+    }
+
+    .ch h2 {
+      font-size: 1.7em;
+    }
+
+    ul, ol {
+      padding-left: 1.4em;
+    }
+
+    li {
+      margin-bottom: 12px;
+      line-height: 1.6;
+      font-size: 1em;
+    }
+
+    .ch li {
+      font-size: 1.2em;
+    }
+
+    .recipe-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .ingredients, .instructions {
+      background: #fffdf7;
+      padding: 20px 25px;
+      border-radius: 10px;
+      flex: 1;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .note {
+      background: #fff7e6;
+      border-left: 5px solid #b84e44;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 40px;
+      font-size: 1em;
+    }
+
+    .ch .note {
+      font-size: 1.2em;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.95em;
+      margin-top: 50px;
+      color: #555;
+    }
+
+    .translate-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #b85c38;
+      border-radius: 34px;
+      transition: .4s;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      border-radius: 50%;
+      transition: .4s;
+    }
+
+    input:checked + .toggle-slider {
+      background-color: #8a4529;
+    }
+
+    input:checked + .toggle-slider:before {
+      transform: translateX(26px);
+    }
+
+    .toggle-labels {
+      display: flex;
+      justify-content: space-between;
+      width: 60px;
+      font-size: 12px;
+      font-weight: bold;
+      color: #b85c38;
+      margin-top: 5px;
+    }
+
+    .toggle-label.inactive {
+      opacity: 0.3;
+    }
+
+    .ch {
+      font-family: 'Noto Sans SC', sans-serif;
+    }
+
+    .festive-element {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      opacity: 0.8;
+    }
+
+    .lantern1 {
+      top: -40px;
+      left: 5%;
+      transform: rotate(-10deg);
+    }
+
+    .lantern2 {
+      top: -30px;
+      right: 5%;
+      transform: rotate(10deg);
+    }
+
+    .moon {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background-color: #ffd54f;
+      box-shadow: 0 0 20px #ffd54f;
+      z-index: 0;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 30px 15px;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      h2 {
+        font-size: 1.3em;
+      }
+
+      .ch h1 {
+        font-size: 2.4em;
+      }
+
+      .ch h2 {
+        font-size: 1.5em;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="translate-toggle">
-        <label class="toggle-switch">
-            <input type="checkbox" id="translateToggle">
-            <span class="toggle-slider"></span>
-        </label>
-        <div class="toggle-labels">
-            <span class="toggle-label en active" id="labelEN">EN</span>
-            <span class="toggle-label cn inactive" id="labelCN">CN</span>
-        </div>
-    </div>
-    
-    <div class="container">
-        <div class="festive-element lantern1">
-            <svg viewBox="0 0 100 100">
-                <path d="M50,10 Q70,10 70,30 L70,60 Q70,80 50,80 Q30,80 30,60 L30,30 Q30,10 50,10 Z" fill="#e74c3c" />
-                <rect x="45" y="5" width="10" height="10" fill="#7f8c8d" />
-                <rect x="45" y="80" width="10" height="10" fill="#7f8c8d" />
-                <path d="M45,90 L45,95 L55,95 L55,90 Z" fill="#7f8c8d" />
-            </svg>
-        </div>
-        
-        <div class="festive-element lantern2">
-            <svg viewBox="0 0 100 100">
-                <path d="M50,10 Q70,10 70,30 L70,60 Q70,80 50,80 Q30,80 30,60 L30,30 Q30,10 50,10 Z" fill="#f1c40f" />
-                <rect x="45" y="5" width="10" height="10" fill="#7f8c8d" />
-                <rect x="45" y="80" width="10" height="10" fill="#7f8c8d" />
-                <path d="M45,90 L45,95 L55,95 L55,90 Z" fill="#7f8c8d" />
-            </svg>
-        </div>
-        
-        <div class="moon"></div>
-        
-        <header>
-            <h1 class="translate" data-en="Mid-Autumn Festival Lotus Root Stir-Fry" data-zh="中秋节莲藕炒菜">Mid-Autumn Festival Lotus Root Stir-Fry</h1>
-            <p class="subtitle translate" data-en="A traditional dish to celebrate the harvest moon" data-zh="庆祝丰收月的传统美食">A traditional dish to celebrate the harvest moon</p>
-        </header>
-        
-        <div class="recipe-container">
-            <div class="ingredients">
-                <h2 class="translate" data-en="Ingredients" data-zh="食材">Ingredients</h2>
-                <ul>
-                    <li class="translate" data-en="12 ounces lotus root" data-zh="12盎司莲藕">12 ounces lotus root</li>
-                    <li class="translate" data-en="8 wood ear mushrooms" data-zh="8个木耳">8 wood ear mushrooms</li>
-                    <li class="translate" data-en="1/2 cup red bell pepper" data-zh="1/2杯红椒">1/2 cup red bell pepper</li>
-                    <li class="translate" data-en="1/4 cup chicken stock" data-zh="1/4杯鸡汤">1/4 cup chicken stock</li>
-                    <li class="translate" data-en="2 teaspoons oyster sauce" data-zh="2茶匙蚝油">2 teaspoons oyster sauce</li>
-                    <li class="translate" data-en="1/4-1/2 teaspoon salt (or to taste)" data-zh="1/4-1/2茶匙盐（按口味调整）">1/4-1/2 teaspoon salt (or to taste)</li>
-                    <li class="translate" data-en="1/4 teaspoon sugar" data-zh="1/4茶匙糖">1/4 teaspoon sugar</li>
-                    <li class="translate" data-en="1/8 teaspoon white pepper" data-zh="1/8茶匙白胡椒">1/8 teaspoon white pepper</li>
-                    <li class="translate" data-en="2 tablespoons oil" data-zh="2汤匙油">2 tablespoons oil</li>
-                    <li class="translate" data-en="6 slices ginger" data-zh="6片姜">6 slices ginger</li>
-                    <li class="translate" data-en="2 cloves garlic" data-zh="2瓣大蒜">2 cloves garlic</li>
-                    <li class="translate" data-en="2 scallions" data-zh="2根葱">2 scallions</li>
-                    <li class="translate" data-en="1 tablespoon Shaoxing wine" data-zh="1汤匙绍兴酒">1 tablespoon Shaoxing wine</li>
-                    <li class="translate" data-en="2 teaspoons cornstarch" data-zh="2茶匙玉米淀粉">2 teaspoons cornstarch</li>
-                </ul>
-            </div>
-            
-            <div class="instructions">
-                <h2 class="translate" data-en="Instructions" data-zh="做法步骤">Instructions</h2>
-                <ol>
-                    <li class="translate" data-en="Prep the lotus root by peeling them, trimming the ends, and thinly slicing them, until you have about 340g." data-zh="准备莲藕：去皮，切掉两端，薄切至约340克。">Prep the lotus root by peeling them, trimming the ends, and thinly slicing them, until you have about 340g.</li>
-                    <li class="translate" data-en="Bring a large wok or pot of water to a boil and blanch the lotus root, wood ears, and bell peppers for 45 seconds. Drain thoroughly and set aside." data-zh="在大锅中水烧开，焯莲藕、木耳和红椒45秒。沥干水分，备用。">Bring a large wok or pot of water to a boil and blanch the lotus root, wood ears, and bell peppers for 45 seconds. Drain thoroughly and set aside.</li>
-                    <li class="translate" data-en="Combine the chicken stock, oyster sauce, salt, sugar, and white pepper in a small bowl to create the sauce mixture and set aside." data-zh="将鸡汤、蚝油、盐、糖和白胡椒在小碗中混合调成酱汁，备用。">Combine the chicken stock, oyster sauce, salt, sugar, and white pepper in a small bowl to create the sauce mixture and set aside.</li>
-                    <li class="translate" data-en="Add the oil to the wok over medium heat along with the ginger. Cook for 30 seconds to a minute, and then add the garlic and scallions." data-zh="在锅中倒入油，中火加热，放入姜片炒30秒至1分钟，然后加入大蒜和葱。">Add the oil to the wok over medium heat along with the ginger. Cook for 30 seconds to a minute, and then add the garlic and scallions.</li>
-                    <li class="translate" data-en="Cook for another 20 seconds or so, and then add the blanched vegetables." data-zh="再炒约20秒，然后加入焯过的蔬菜。">Cook for another 20 seconds or so, and then add the blanched vegetables.</li>
-                    <li class="translate" data-en="Stir-fry the vegetables for 1 minute. Then add the Shaoxing wine around the perimeter of the wok, followed by the sauce mixture." data-zh="炒蔬菜1分钟。然后沿锅边加入绍兴酒，再倒入调好的酱汁。">Stir-fry the vegetables for 1 minute. Then add the Shaoxing wine around the perimeter of the wok, followed by the sauce mixture.</li>
-                    <li class="translate" data-en="Cook for 30 seconds, until the sauce is at a simmer. Stir your cornstarch and water mixture, making sure the cornstarch hasn't settled and add it to the wok." data-zh="煮30秒，直到酱汁微沸。搅拌水淀粉确保淀粉没有沉淀，然后加入锅中。">Cook for 30 seconds, until the sauce is at a simmer. Stir your cornstarch and water mixture, making sure the cornstarch hasn't settled and add it to the wok.</li>
-                    <li class="translate" data-en="Stir-fry for another 20-30 seconds until the sauce coats the vegetables and serve." data-zh="再炒20-30秒，直到酱汁均匀裹住蔬菜，即可上菜。">Stir-fry for another 20-30 seconds until the sauce coats the vegetables and serve.</li>
-                </ol>
-            </div>
-        </div>
-        
-        <div class="note">
-            <h3 class="translate" data-en="Mid-Autumn Festival Significance" data-zh="中秋节的意义">Mid-Autumn Festival Significance</h3>
-            <p class="translate" data-en="Lotus root is a symbolic ingredient during the Mid-Autumn Festival, representing abundance and harmony. Its circular slices with distinctive hole patterns symbolize family reunion and togetherness, making this dish perfect for gathering with loved ones under the harvest moon." data-zh="莲藕是中秋节具有象征意义的食材，代表着丰收和和谐。它圆形的切片和独特的孔洞图案象征着团圆和和睦，使这道菜成为在丰收月下与亲人聚会的完美选择。">Lotus root is a symbolic ingredient during the Mid-Autumn Festival, representing abundance and harmony. Its circular slices with distinctive hole patterns symbolize family reunion and togetherness, making this dish perfect for gathering with loved ones under the harvest moon.</p>
-        </div>
-        
-        <footer>
-            <p class="translate" data-en="Celebrate the Mid-Autumn Festival with this delicious traditional recipe!" data-zh="用这道美味的传统食谱庆祝中秋节！">Celebrate the Mid-Autumn Festival with this delicious traditional recipe!</p>
-        </footer>
-    </div>
-    
-    <script>
-        document.getElementById('translateToggle').addEventListener('change', function() {
-            const elements = document.querySelectorAll('.translate');
-            const isChecked = this.checked;
-            const labelEN = document.getElementById('labelEN');
-            const labelCN = document.getElementById('labelCN');
-            
-            elements.forEach(element => {
-                if (isChecked) {
-                    // Switch to Chinese
-                    element.textContent = element.getAttribute('data-zh');
-                    labelEN.classList.remove('active');
-                    labelEN.classList.add('inactive');
-                    labelCN.classList.remove('inactive');
-                    labelCN.classList.add('active');
 
-                    element.classList.add('ch'); // Add Chinese font class
-                } else {
-                    // Switch to English
-                    element.textContent = element.getAttribute('data-en');
-                    labelCN.classList.remove('active');
-                    labelCN.classList.add('inactive');
-                    labelEN.classList.remove('inactive');
-                    labelEN.classList.add('active');
+  <div class="translate-toggle">
+    <label class="toggle-switch">
+      <input type="checkbox" id="translateToggle">
+      <span class="toggle-slider"></span>
+    </label>
+    <div class="toggle-labels">
+      <span class="toggle-label en active" id="labelEN">EN</span>
+      <span class="toggle-label cn inactive" id="labelCN">中文</span>
+    </div>
+  </div>
 
-                    element.classList.remove('ch'); // Remove Chinese font class
-                }
-            });
-        });
-    </script>
+  <div class="container">
+    <div class="festive-element lantern1">
+      <svg viewBox="0 0 100 100">
+        <path d="M50,10 Q70,10 70,30 L70,60 Q70,80 50,80 Q30,80 30,60 L30,30 Q30,10 50,10 Z" fill="#e74c3c" />
+        <rect x="45" y="5" width="10" height="10" fill="#7f8c8d" />
+        <rect x="45" y="80" width="10" height="10" fill="#7f8c8d" />
+        <path d="M45,90 L45,95 L55,95 L55,90 Z" fill="#7f8c8d" />
+      </svg>
+    </div>
+
+    <div class="festive-element lantern2">
+      <svg viewBox="0 0 100 100">
+        <path d="M50,10 Q70,10 70,30 L70,60 Q70,80 50,80 Q30,80 30,60 L30,30 Q30,10 50,10 Z" fill="#f1c40f" />
+        <rect x="45" y="5" width="10" height="10" fill="#7f8c8d" />
+        <rect x="45" y="80" width="10" height="10" fill="#7f8c8d" />
+        <path d="M45,90 L45,95 L55,95 L55,90 Z" fill="#7f8c8d" />
+      </svg>
+    </div>
+
+    <div class="moon"></div>
+
+    <header>
+      <h1 class="translate" data-en="Mid-Autumn Festival Lotus Root Stir-Fry" data-zh="中秋节莲藕炒菜">Mid-Autumn Festival Lotus Root Stir-Fry</h1>
+      <p class="subtitle translate" data-en="A traditional dish to celebrate the harvest moon" data-zh="庆祝丰收月的传统美食">A traditional dish to celebrate the harvest moon</p>
+    </header>
+
+    <div class="recipe-container">
+      <div class="ingredients">
+        <h2 class="translate" data-en="Ingredients" data-zh="食材">Ingredients</h2>
+        <ul>
+          <li class="translate" data-en="12 ounces lotus root" data-zh="12盎司莲藕">12 ounces lotus root</li>
+          <li class="translate" data-en="8 wood ear mushrooms" data-zh="8个木耳">8 wood ear mushrooms</li>
+          <li class="translate" data-en="1/2 cup red bell pepper" data-zh="1/2杯红椒">1/2 cup red bell pepper</li>
+          <li class="translate" data-en="1/4 cup chicken stock" data-zh="1/4杯鸡汤">1/4 cup chicken stock</li>
+          <li class="translate" data-en="2 teaspoons oyster sauce" data-zh="2茶匙蚝油">2 teaspoons oyster sauce</li>
+          <li class="translate" data-en="Salt, sugar, white pepper to taste" data-zh="适量盐、糖、白胡椒">Salt, sugar, white pepper to taste</li>
+          <li class="translate" data-en="2 tablespoons oil" data-zh="2汤匙油">2 tablespoons oil</li>
+          <li class="translate" data-en="6 slices ginger" data-zh="6片姜">6 slices ginger</li>
+          <li class="translate" data-en="2 cloves garlic" data-zh="2瓣蒜">2 cloves garlic</li>
+          <li class="translate" data-en="2 scallions" data-zh="2根葱">2 scallions</li>
+          <li class="translate" data-en="1 tablespoon Shaoxing wine" data-zh="1汤匙绍兴酒">1 tablespoon Shaoxing wine</li>
+          <li class="translate" data-en="2 teaspoons cornstarch + water" data-zh="2茶匙玉米淀粉加水">2 teaspoons cornstarch + water</li>
+        </ul>
+      </div>
+
+      <div class="instructions">
+        <h2 class="translate" data-en="Instructions" data-zh="步骤">Instructions</h2>
+        <ol>
+          <li class="translate" data-en="Blanch lotus root, mushrooms, and peppers." data-zh="焯水莲藕、木耳和红椒。">Blanch lotus root, mushrooms, and peppers.</li>
+          <li class="translate" data-en="Mix sauces and seasonings in a bowl." data-zh="将调味料混合成酱汁。">Mix sauces and seasonings in a bowl.</li>
+          <li class="translate" data-en="Heat oil, cook ginger, then add garlic and scallions." data-zh="热油炒姜，加入蒜和葱。">Heat oil, cook ginger, then add garlic and scallions.</li>
+          <li class="translate" data-en="Add vegetables and stir-fry quickly." data-zh="加入蔬菜翻炒。">Add vegetables and stir-fry quickly.</li>
+          <li class="translate" data-en="Add wine and sauce mixture." data-zh="倒入绍兴酒和酱汁。">Add wine and sauce mixture.</li>
+          <li class="translate" data-en="Add cornstarch slurry to thicken sauce." data-zh="加入水淀粉勾芡。">Add cornstarch slurry to thicken sauce.</li>
+          <li class="translate" data-en="Stir-fry briefly and serve hot." data-zh="翻炒几下即可上桌。">Stir-fry briefly and serve hot.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="note">
+      <h3 class="translate" data-en="Mid-Autumn Festival Significance" data-zh="中秋节的意义">Mid-Autumn Festival Significance</h3>
+      <p class="translate" data-en="Lotus root represents family unity and abundance. Enjoy this dish with loved ones under the full moon." data-zh="莲藕象征团圆与丰收，中秋佳节与亲人共享这道美食。">Lotus root represents family unity and abundance. Enjoy this dish with loved ones under the full moon.</p>
+    </div>
+
+    <div class="note">
+      <h3 class="translate" data-en="Celebrating Together in the Heartlands" data-zh="在邻里共庆团圆">Celebrating Together in the Heartlands</h3>
+      <p class="translate" data-en="Whether you're cooking this dish for your family or sharing it with neighbours at a gathering, may it bring warmth and joy to your home. Happy Mid-Autumn Festival!" data-zh="无论是为家人烹煮这道菜，还是在聚会中与邻居分享，愿它为您的家带来温暖与欢乐。中秋节快乐！">Whether you're cooking this dish for your family or sharing it with neighbours at a gathering, may it bring warmth and joy to your home. Happy Mid-Autumn Festival!</p>
+    </div>
+
+    <footer>
+      <p class="translate" data-en="Celebrate the Mid-Autumn Festival with this delicious traditional recipe!" data-zh="用这道美味的传统食谱庆祝中秋节！">Celebrate the Mid-Autumn Festival with this delicious traditional recipe!</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('translateToggle').addEventListener('change', function () {
+      const isChecked = this.checked;
+      const elements = document.querySelectorAll('.translate');
+      const labelEN = document.getElementById('labelEN');
+      const labelCN = document.getElementById('labelCN');
+      document.body.classList.toggle('ch', isChecked);
+
+      elements.forEach(el => {
+        el.textContent = isChecked ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+        el.classList.toggle('ch', isChecked);
+      });
+
+      labelEN.classList.toggle('active', !isChecked);
+      labelEN.classList.toggle('inactive', isChecked);
+      labelCN.classList.toggle('active', isChecked);
+      labelCN.classList.toggle('inactive', !isChecked);
+    });
+  </script>
 </body>
 </html>
